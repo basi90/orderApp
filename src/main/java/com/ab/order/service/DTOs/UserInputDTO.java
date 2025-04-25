@@ -6,15 +6,15 @@ public class UserInputDTO {
     private String lastName;
     private String firstName;
     private String address;
-    private String phone;
+    private String phoneNumber;
 
-    public UserInputDTO(String email, String password, String lastName, String firstName, String address, String phone) {
+    public UserInputDTO(String email, String password, String lastName, String firstName, String address, String phoneNumber) {
         this.email = email;
         this.password = password;
         this.lastName = lastName;
         this.firstName = firstName;
         this.address = address;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -37,7 +37,7 @@ public class UserInputDTO {
         return address;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }

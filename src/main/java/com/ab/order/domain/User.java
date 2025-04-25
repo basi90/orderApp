@@ -10,11 +10,11 @@ public class User {
     private String lastName; // not blank, unique
     private String firstName;
     private String address;
-    private String phone; // not blank, unique
+    private String phoneNumber; // not blank, unique
 
     private static long nextId = 1;
 
-    public User(String email, String password, String lastName, String firstName, String address, String phone) {
+    public User(String email, String password, String lastName, String firstName, String address, String phoneNumber) {
         this.id = nextId++;
         this.role = UserRole.CUSTOMER;
         this.email = email;
@@ -22,7 +22,7 @@ public class User {
         this.lastName = lastName;
         this.firstName = firstName;
         this.address = address;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
     }
 
     public long getId() {
@@ -53,8 +53,8 @@ public class User {
         return address;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     @Override
