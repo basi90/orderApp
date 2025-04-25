@@ -2,6 +2,8 @@ package com.ab.order.service.DTOs;
 
 import com.ab.order.domain.UserRole;
 
+import java.util.Objects;
+
 public class UserOutputDTO {
     private long id;
     private UserRole role;
@@ -47,5 +49,17 @@ public class UserOutputDTO {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        UserOutputDTO that = (UserOutputDTO) o;
+        return id == that.id && role == that.role && Objects.equals(email, that.email) && Objects.equals(lastName, that.lastName) && Objects.equals(firstName, that.firstName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, role, email, lastName, firstName, address, phoneNumber);
     }
 }
