@@ -58,7 +58,7 @@ public class ItemDTOTest {
                 "amountInStock": 1
                 }
                 """;
-        
+
         assertThat(outputJson.write(dto)).isEqualToJson(jsonString);
     }
 }
