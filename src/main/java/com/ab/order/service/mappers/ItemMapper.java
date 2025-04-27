@@ -13,7 +13,7 @@ public class ItemMapper {
                 dto.getName(),
                 dto.getDescription(),
                 dto.getPrice(),
-                dto.getAmountInStock()
+                dto.getStockAmount()
         );
     }
 

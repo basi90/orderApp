@@ -32,7 +32,7 @@ public class ItemDTOTest {
                 "name": "a",
                 "description": "b",
                 "price": 9.99,
-                "amountInStock": 1
+                "stockAmount": 1
                 }
                 """;
 
@@ -55,7 +55,7 @@ public class ItemDTOTest {
                 "name": "a",
                 "description": "b",
                 "price": 9.99,
-                "amountInStock": 1
+                "stockAmount": 1
                 }
                 """;
 

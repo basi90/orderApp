@@ -4,13 +4,13 @@ public class ItemInputDTO {
     private String name;
     private String description;
     private double price;
-    private long amountInStock;
+    private long stockAmount;
 
-    public ItemInputDTO(String name, String description, double price, long amountInStock) {
+    public ItemInputDTO(String name, String description, double price, long stockAmount) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.amountInStock = amountInStock;
+        this.stockAmount = stockAmount;
     }
 
     public String getName() {
@@ -25,7 +25,7 @@ public class ItemInputDTO {
         return price;
     }
 
-    public long getAmountInStock() {
-        return amountInStock;
+    public long getStockAmount() {
+        return stockAmount;
     }
 }

@@ -11,6 +11,22 @@ public class Item {
 
     private static long nextId = 1;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setStockAmount(long stockAmount) {
+        this.stockAmount = stockAmount;
+    }
+
     public Item(String name, String description, double price, long stockAmount) {
         this.id = nextId++;
         this.name = name;

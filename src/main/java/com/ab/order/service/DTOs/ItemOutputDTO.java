@@ -7,14 +7,14 @@ public class ItemOutputDTO {
     private String name;
     private String description;
     private double price;
-    private long amountInStock;
+    private long stockAmount;
 
-    public ItemOutputDTO(long id, String name, String description, double price, long amountInStock) {
+    public ItemOutputDTO(long id, String name, String description, double price, long stockAmount) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.amountInStock = amountInStock;
+        this.stockAmount = stockAmount;
     }
 
     public long getId() {
@@ -33,19 +33,19 @@ public class ItemOutputDTO {
         return price;
     }
 
-    public long getAmountInStock() {
-        return amountInStock;
+    public long getStockAmount() {
+        return stockAmount;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ItemOutputDTO that = (ItemOutputDTO) o;
-        return id == that.id && Double.compare(price, that.price) == 0 && amountInStock == that.amountInStock && Objects.equals(name, that.name) && Objects.equals(description, that.description);
+        return id == that.id && Double.compare(price, that.price) == 0 && stockAmount == that.stockAmount && Objects.equals(name, that.name) && Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, price, amountInStock);
+        return Objects.hash(id, name, description, price, stockAmount);
     }
 }
