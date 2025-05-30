@@ -26,7 +26,7 @@ public class ItemService {
         return itemMapper.convertItemToOutputDTO(newItem);
     }
 
-    public Optional<ItemOutputDTO> updateItem(long id, ItemInputDTO dto) {
+    public Optional<ItemOutputDTO> updateItem(Long id, ItemInputDTO dto) {
         Optional<Item> itemOptional = itemRepository.findById(id);
 
         if (itemOptional.isPresent()) {
