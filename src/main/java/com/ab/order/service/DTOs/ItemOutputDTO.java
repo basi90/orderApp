@@ -41,7 +41,7 @@ public class ItemOutputDTO {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ItemOutputDTO that = (ItemOutputDTO) o;
-        return id == that.id && Double.compare(price, that.price) == 0 && stockAmount == that.stockAmount && Objects.equals(name, that.name) && Objects.equals(description, that.description);
+        return Objects.equals(id, that.id) && Double.compare(price, that.price) == 0 && Objects.equals(stockAmount, that.stockAmount) && Objects.equals(name, that.name) && Objects.equals(description, that.description);
     }
 
     @Override
