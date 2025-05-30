@@ -28,7 +28,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name, String description, double price, long stockAmount) {
+    public Item(String name, String description, Double price, Long stockAmount) {
         this.name = name;
         this.description = description;
         this.price = price;

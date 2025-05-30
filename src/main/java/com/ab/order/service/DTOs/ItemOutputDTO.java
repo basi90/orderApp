@@ -3,11 +3,11 @@ package com.ab.order.service.DTOs;
 import java.util.Objects;
 
 public class ItemOutputDTO {
-    private long id;
+    private Long id;
     private String name;
     private String description;
-    private double price;
-    private long stockAmount;
+    private Double price;
+    private Long stockAmount;
 
     public ItemOutputDTO(long id, String name, String description, double price, long stockAmount) {
         this.id = id;
@@ -17,7 +17,7 @@ public class ItemOutputDTO {
         this.stockAmount = stockAmount;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

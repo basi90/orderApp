@@ -35,6 +35,9 @@ public class ItemService {
             item.setDescription(dto.getDescription());
             item.setPrice(dto.getPrice());
             item.setStockAmount(dto.getStockAmount());
+
+            itemRepository.save(item);
+
             return Optional.of(itemMapper.convertItemToOutputDTO(item));
         }
         return Optional.empty();

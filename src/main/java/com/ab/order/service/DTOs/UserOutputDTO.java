@@ -5,7 +5,7 @@ import com.ab.order.domain.UserRole;
 import java.util.Objects;
 
 public class UserOutputDTO {
-    private long id;
+    private Long id;
     private UserRole role;
     private String email;
     private String lastName;
@@ -23,7 +23,7 @@ public class UserOutputDTO {
         this.phoneNumber = phoneNumber;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
