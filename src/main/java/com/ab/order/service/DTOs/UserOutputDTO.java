@@ -5,7 +5,7 @@ import com.ab.order.domain.UserRole;
 import java.util.Objects;
 
 public class UserOutputDTO {
-    private long id;
+    private Long id;
     private UserRole role;
     private String email;
     private String lastName;
@@ -23,7 +23,7 @@ public class UserOutputDTO {
         this.phoneNumber = phoneNumber;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -55,7 +55,7 @@ public class UserOutputDTO {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         UserOutputDTO that = (UserOutputDTO) o;
-        return id == that.id && role == that.role && Objects.equals(email, that.email) && Objects.equals(lastName, that.lastName) && Objects.equals(firstName, that.firstName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
+        return Objects.equals(id, that.id) && role == that.role && Objects.equals(email, that.email) && Objects.equals(lastName, that.lastName) && Objects.equals(firstName, that.firstName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
     }
 
     @Override

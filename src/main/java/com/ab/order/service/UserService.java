@@ -20,7 +20,7 @@ public class UserService {
 
     public UserOutputDTO createUser(UserInputDTO dto) {
         User newUser = userMapper.convertInputDtoInUser(dto);
-        userRepository.saveToDb(newUser);
+        userRepository.save(newUser);
         return userMapper.convertUserInOutputDto(newUser);
     }
 }

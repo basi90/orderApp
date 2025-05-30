@@ -1,41 +1,41 @@
 package com.ab.order.domain;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "item")
 public class Item {
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_seq_gen")
+    @SequenceGenerator(name = "item_seq_gen", sequenceName = "item_seq", allocationSize = 1)
+    private Long id;
+
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
+
+    @Column(name = "description", nullable = false)
     private String description;
-    private double price;
-    private long stockAmount;
 
-    private static long nextId = 1;
+    @Column(name = "price", nullable = false)
+    private Double price;
 
-    public void setName(String name) {
-        this.name = name;
+    @Column(name = "stock_amount", nullable = false)
+    private Long stockAmount;
+
+    public Item() {
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setStockAmount(long stockAmount) {
-        this.stockAmount = stockAmount;
-    }
-
-    public Item(String name, String description, double price, long stockAmount) {
-        this.id = nextId++;
+    public Item(String name, String description, Double price, Long stockAmount) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stockAmount = stockAmount;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -47,19 +47,35 @@ public class Item {
         return description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public long getStockAmount() {
+    public Long getStockAmount() {
         return stockAmount;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public void setStockAmount(Long stockAmount) {
+        this.stockAmount = stockAmount;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return id == item.id;
+        return Objects.equals(id, item.id);
     }
 
     @Override

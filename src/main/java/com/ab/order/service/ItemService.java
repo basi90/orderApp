@@ -22,11 +22,11 @@ public class ItemService {
 
     public ItemOutputDTO createItem(ItemInputDTO dto) {
         Item newItem = itemMapper.convertInputDTOtoItem(dto);
-        itemRepository.saveToDb(newItem);
+        itemRepository.save(newItem);
         return itemMapper.convertItemToOutputDTO(newItem);
     }
 
-    public Optional<ItemOutputDTO> updateItem(long id, ItemInputDTO dto) {
+    public Optional<ItemOutputDTO> updateItem(Long id, ItemInputDTO dto) {
         Optional<Item> itemOptional = itemRepository.findById(id);
 
         if (itemOptional.isPresent()) {
@@ -35,6 +35,9 @@ public class ItemService {
             item.setDescription(dto.getDescription());
             item.setPrice(dto.getPrice());
             item.setStockAmount(dto.getStockAmount());
+
+            itemRepository.save(item);
+
             return Optional.of(itemMapper.convertItemToOutputDTO(item));
         }
         return Optional.empty();

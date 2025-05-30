@@ -10,7 +10,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.stubbing.OngoingStubbing;
 
 import java.util.Optional;
 
@@ -45,7 +44,7 @@ public class ItemServiceTest {
                 "a",
                 "b",
                 9.99,
-                1
+                1L
         );
 
         ItemOutputDTO expected = new ItemOutputDTO(
@@ -63,7 +62,7 @@ public class ItemServiceTest {
 
         verify(itemMapper).convertInputDTOtoItem(input);
         verify(itemMapper).convertItemToOutputDTO(item);
-        verify(itemRepository).saveToDb(item);
+        verify(itemRepository).save(item);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -75,14 +74,14 @@ public class ItemServiceTest {
                 "b",
                 "c",
                 19.99,
-                4
+                4L
         );
 
         Item item = new Item(
                 "a",
                 "b",
                 9.99,
-                3
+                3L
         );
 
         when(itemRepository.findById(itemId)).thenReturn(Optional.of(item));

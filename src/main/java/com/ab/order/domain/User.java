@@ -1,21 +1,44 @@
 package com.ab.order.domain;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
+@Table(name="users")
 public class User {
-    private long id;
-    private UserRole role;
-    private String email; // not blank, unique
-    private String password;
-    private String lastName; // not blank, unique
-    private String firstName;
-    private String address;
-    private String phoneNumber; // not blank, unique
 
-    private static long nextId = 1;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_gen")
+    @SequenceGenerator(name = "user_seq_gen", sequenceName = "user_seq", allocationSize = 1)
+    private Long id;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false, length = 50)
+    private UserRole role;
+
+    @Column(name = "email", nullable = false, length = 50, unique = true)
+    private String email;
+
+    @Column(name = "password", nullable = false, length = 50)
+    private String password;
+
+    @Column(name = "last_name", nullable = false, length = 50)
+    private String lastName;
+
+    @Column(name = "first_name", length = 50)
+    private String firstName;
+
+    @Column(name = "address", nullable = false, length = 50)
+    private String address;
+
+    @Column(name = "phone_number", nullable = false, length = 50, unique = true)
+    private String phoneNumber;
+
+    public User() {
+    }
 
     public User(String email, String password, String lastName, String firstName, String address, String phoneNumber) {
-        this.id = nextId++;
         this.role = UserRole.CUSTOMER;
         this.email = email;
         this.password = password;
@@ -25,7 +48,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -66,7 +89,7 @@ public class User {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return getId() == user.getId();
+        return Objects.equals(getId(), user.getId());
     }
 
     @Override
