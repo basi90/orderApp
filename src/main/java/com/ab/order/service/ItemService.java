@@ -22,7 +22,7 @@ public class ItemService {
 
     public ItemOutputDTO createItem(ItemInputDTO dto) {
         Item newItem = itemMapper.convertInputDTOtoItem(dto);
-        itemRepository.saveToDb(newItem);
+        itemRepository.save(newItem);
         return itemMapper.convertItemToOutputDTO(newItem);
     }
 

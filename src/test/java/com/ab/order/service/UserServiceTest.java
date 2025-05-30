@@ -66,7 +66,7 @@ public class UserServiceTest {
 
         verify(userMapper).convertInputDtoInUser(input);
         verify(userMapper).convertUserInOutputDto(user);
-        verify(userRepository).saveToDb(user);
+        verify(userRepository).save(user);
 
         assertThat(actual).isEqualTo(expected);
     }
