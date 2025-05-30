@@ -4,6 +4,7 @@ import com.ab.order.domain.Item;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 @Repository
 public class ItemRepository {
@@ -15,5 +16,9 @@ public class ItemRepository {
 
     public void saveToDb(Item item) {
         items.put(item.getId(), item);
+    }
+
+    public Optional<Item> findById(long id) {
+        return Optional.ofNullable(items.get(id));
     }
 }

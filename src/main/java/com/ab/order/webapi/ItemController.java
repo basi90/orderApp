@@ -6,6 +6,8 @@ import com.ab.order.service.ItemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/items")
 public class ItemController {
@@ -20,5 +22,10 @@ public class ItemController {
     @ResponseStatus(HttpStatus.CREATED)
     public ItemOutputDTO registerItem(@RequestBody ItemInputDTO input) {
         return itemService.createItem(input);
+    }
+
+    @PutMapping(path = "{id}", produces = "application/json")
+    public Optional<ItemOutputDTO> updateItem(@PathVariable("id") Long id, @RequestBody ItemInputDTO input) {
+        return itemService.updateItem(id, input);
     }
 }

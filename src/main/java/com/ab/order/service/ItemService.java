@@ -7,6 +7,8 @@ import com.ab.order.service.DTOs.ItemOutputDTO;
 import com.ab.order.service.mappers.ItemMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ItemService {
 
@@ -22,5 +24,19 @@ public class ItemService {
         Item newItem = itemMapper.convertInputDTOtoItem(dto);
         itemRepository.saveToDb(newItem);
         return itemMapper.convertItemToOutputDTO(newItem);
+    }
+
+    public Optional<ItemOutputDTO> updateItem(long id, ItemInputDTO dto) {
+        Optional<Item> itemOptional = itemRepository.findById(id);
+
+        if (itemOptional.isPresent()) {
+            Item item = itemOptional.get();
+            item.setName(dto.getName());
+            item.setDescription(dto.getDescription());
+            item.setPrice(dto.getPrice());
+            item.setStockAmount(dto.getStockAmount());
+            return Optional.of(itemMapper.convertItemToOutputDTO(item));
+        }
+        return Optional.empty();
     }
 }
