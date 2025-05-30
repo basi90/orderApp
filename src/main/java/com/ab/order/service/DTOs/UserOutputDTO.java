@@ -55,7 +55,7 @@ public class UserOutputDTO {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         UserOutputDTO that = (UserOutputDTO) o;
-        return id == that.id && role == that.role && Objects.equals(email, that.email) && Objects.equals(lastName, that.lastName) && Objects.equals(firstName, that.firstName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
+        return Objects.equals(id, that.id) && role == that.role && Objects.equals(email, that.email) && Objects.equals(lastName, that.lastName) && Objects.equals(firstName, that.firstName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
     }
 
     @Override

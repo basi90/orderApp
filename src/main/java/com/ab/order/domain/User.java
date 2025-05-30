@@ -48,7 +48,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -89,7 +89,7 @@ public class User {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return getId() == user.getId();
+        return Objects.equals(getId(), user.getId());
     }
 
     @Override
